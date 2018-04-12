@@ -39,20 +39,20 @@ end
 # 7
 def lend_money(lender, lendee, amount)
   lender[:monies] -= amount
-  lendee[:monues] += amount
+  lendee[:monies] += amount
 end
 
 # 8
-def favourite_food(people)
+def all_foods(people)
   foods = []
   for person in people
-    food.concat(person[:favourites][:things_to_eat])
+    foods.concat(person[:favourites][:things_to_eat])
   end
   return foods
 end
 
 # 9
-def no_friends(person)
+def no_friends(people)
   result = []
   for person in people
     result.push(person) if person[:friends].empty?
