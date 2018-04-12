@@ -4,49 +4,58 @@ def get_name(person)
 end
 
 # 2
-def get_favourite_tv_show(person)
+def favourite_tv_show(person)
   return person[:favourites][:tv_show]
 end
 
 # 3
 def likes_to_eat(person, food)
-  if person[:favourites][:things_to_eat].first == food
-    return true
-  end
+  return person[:favourites][:things_to_eat].include?(food)
 end
 
 # 4
-def add_friend(person, new_friend)
-  person[:friends].push(new_friend)
-  person[:friends].count
+def add_friend(name, person)
+  person[:friends] << name
+end
+
+def number_of_friends(person)
+  return person[:friends].length
 end
 
 # 5
-def remove_friend(person, friend)
-  for friends in person[:friends]
-    if friends == friend
-      person[:friends].delete(friends)
-    end
-  end
-  return person[:friends].count
+def remove_friend(name, person)
+  person[:friends].delete(name)
 end
 
 # 6
-def get_total_monies(people)
-  total_monies = 0
+def total_funds(people)
+  total = 0
   for person in people
-    total_monies += person[:monies]
+    total += person[:monies]
   end
-  total_monies
+  return total
 end
 
 # 7
 def lend_money(lender, lendee, amount)
-  lending_monies = []
   lender[:monies] -= amount
-  lendee[:monies] += amount
-  lending_monies.push(lender[:monies], lendee[:monies])
+  lendee[:monues] += amount
 end
 
 # 8
-def everybody_favourite_food
+def favourite_food(people)
+  foods = []
+  for person in people
+    food.concat(person[:favourites][:things_to_eat])
+  end
+  return foods
+end
+
+# 9
+def no_friends(person)
+  result = []
+  for person in people
+    result.push(person) if person[:friends].empty?
+  end
+  return result
+end
